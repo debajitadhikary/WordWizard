@@ -97,7 +97,7 @@ table th {
 }
 
 body {
-  background-image: url('img_03.jpg');
+  background-image: url('background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
