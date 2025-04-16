@@ -7,6 +7,33 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   <link rel="icon" href="/static/logo.png" type="image/png">
   <title>Dictionary</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .pagination a {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #333;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .pagination a.active {
+      background-color: #007BFF;
+      color: white;
+    }
+    #loading-spinner {
+      display: none;
+      text-align: center;
+      margin: 20px 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -24,14 +51,17 @@
   <div class="content">
     <h1>Birsha</h1>
   </div>
-  
+
   <div class="box">
     <div class="signin">Olchiki Dictionary</div>
     <div class="fold">
-      <form method="GET" action="{{ url_for('search') }}">
-        <input type="text" name="query" placeholder="Enter a word in alchiki">
+      <form method="GET" action="{{ url_for('search') }}" onsubmit="showSpinner()">
+        <input type="text" name="query" placeholder="Enter a word in alchiki" value="{{ query or '' }}">
         <input type="submit" value="search">
       </form>
+
+      <div id="loading-spinner">🔄 Searching...</div>
+
       {% if results %}
       <table>
         <thead>
@@ -48,7 +78,7 @@
           {% for result in results %}
           <tr>
             <td>{{ result[0] }}</td>
-            <td>{{ result[1] }}</td>
+            <td>{{ result[1]|replace(query, '<span class="highlight">' ~ query ~ '</span>')|safe }}</td>
             <td>{{ result[2] }}</td>
             <td>{{ result[3] }}</td>
             <td>{{ result[4] }}</td>
@@ -57,11 +87,26 @@
           {% endfor %}
         </tbody>
       </table>
+
+      {% if total_pages > 1 %}
+      <div class="pagination">
+        {% for p in range(1, total_pages + 1) %}
+          <a href="{{ url_for('search', query=query, page=p) }}" class="{% if p == page %}active{% endif %}">{{ p }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
       {% elif no_results %}
       <p>No search results found.</p>
       {% endif %}
     </div>
   </div>
+
+  <script>
+    function showSpinner() {
+      document.getElementById('loading-spinner').style.display = 'block';
+    }
+  </script>
 </body>
 
 </html>
