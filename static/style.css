@@ -1,368 +1,159 @@
-/* CSS Reset */
-/* *{
-  margin: 0;
-  padding: 0;
-}
-
-html{
-  scroll-behavior: smooth;
-}
-
-/* CSS Variables 
-:root{
-  --navbar-height: 59px;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  ///* background-color: #f2f2f2; 
-  ///* background-color: #abdbe3; 
-  background-image: url('bg.jpeg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
-
-.container {
-  margin: 50px auto;
-  max-width: 800px;
-  padding: 20px;
-  ///* background-color: #bbe6ef; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: width 0.5s ease-in-out;
-}
-.text_1{
-  font-family: 'Times New Roman', Times, serif;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-
-
-input[type="text"]{
-  flex: 1;
-  padding: 10px;
-  border-radius: 4px;
-  border: none;
-  margin-right: 10px;
-}
-
-
-
-input[type="submit"] {
-  padding: 10px;
-  border-radius: 4px;
-  border: none;
-  background-color: #8121d5;
-  color: #fff;
-  cursor: pointer;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table td, table th {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-table th {
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-.logo {
-  display: flex;
-  justify-content: center;
-} */
-
+/* Reset default margin and padding for all elements */
 * {
-  padding: 0;
   margin: 0;
-  text-decoration: none;
-  list-style: none;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Basic styles for the body */
 body {
-  background-image: url('background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
 }
 
-table,th,td{
-  width: 700px;
-  margin: auto;
-  padding: 8px;
-  text-align: center;
-  border: 2px solid #000;
-  border-collapse: collapse;
-}
-
+/* Navbar Styles */
 nav {
-  /* background: #6da9d6; */
-  padding: 10px;
-  /**/
-  height: 80px;
-  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: transparent;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
+.lp img {
+  width: 50px;
+  height: 50px;
 }
 
-.nav-links li {
-  margin-left: 10px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  padding: 5px;
-}
-
-label.logo {
-  color: white;
-  font-size: 50px;
-  line-height: 80px;
-  padding: 0 100px;
+.logo {
+  font-size: 1.8em;
   font-weight: bold;
 }
 
-.lp {
-  display: inline-block;
-  /* background: #f32929; */
+.nav-links {
+  list-style-type: none;
+  display: flex;
 }
 
-nav ul {
-  float: right;
-  margin-right: 20px;
+.nav-links li {
+  margin-left: 20px;
 }
 
-nav ul li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
 }
 
-nav ul li a {
-  color: white;
-  font-size: 17px;
-  padding: 7px 13px;
-  border-radius: 3px;
-  text-transform: uppercase;
+.nav-links a:hover, .nav-links a.active {
+  color: #ffd700;
 }
 
-a.active,
-a:hover {
-  background: #48f9f6;
-  transition: .5s;
-}
-
+/* Content Styles */
 .content {
-  width: 1200px;
-  height: auto;
-  margin: auto;
-  color: #f3f1f1;
-  position: relative;
-}
-
-.content .par {
-  padding-left: 20px;
-  padding-bottom: 25px;
-  font-family: Arial;
-  letter-spacing: 1.2px;
-  line-height: 30px;
-  color: rgb(248, 248, 248);
-  text-decoration: blanchedalmond;
+  text-align: center;
+  margin: 50px 0;
 }
 
 .content h1 {
-  font-family: 'Times New Roman';
-  font-size: 50px;
-  padding-left: 20px;
-  margin-top: 9%;
-  letter-spacing: 2px;
-  color: #faf7f7;
+  font-size: 3em;
+  color: #333;
 }
 
 .content span {
-  color: orangered;
+  color: #ffd700;
 }
 
+.par {
+  color: #555;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+/* Box and Form Styles */
 .box {
-  /* position: absolute; */
-  position: fixed;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  border-radius: 5px;
-  box-sizing: border-box;
-  overflow: hidden;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: 40px;
 }
 
 .signin {
-  position: relative;
-  width: 100%;
-  height: 50px;
-  background: #7bbae8;
-  color: #fff;
   text-align: center;
-  line-height: 50px;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 5px 10px rgba(59, 52, 52, 0.5);
-}
-
-.fold {
-  position: relative;
-  width: 100%;
-  background: rgba(95, 100, 109, 0.8);
-  transform-origin: top;
-  padding: 30px 20px;
-  box-sizing: border-box;
-  transition: .5s;
-  /* transform: perspective(2000px) rotateX(90deg); */
-}
-
-/* .fold.active{
-  transform: perspective(2000px) rotateX(90deg);
-} */
-.fold form input[type="text"] {
-  width: 100%;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
   margin-bottom: 20px;
-  height: 40px;
+}
+
+.fold form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.fold input[type="text"] {
+  padding: 10px;
+  font-size: 1em;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.fold input[type="submit"] {
   padding: 10px 20px;
-  box-sizing: border-box;
-  border-radius: 40px;
-  box-shadow: none;
-  outline: none;
+  font-size: 1em;
+  background-color: #333;
   color: #fff;
-  background: transparent;
-  border: 1 px solid #fff;
-}
-
-::placeholder {
-  color: #090101;
-}
-
-.fold form input[type="submit"] {
-  display: block;
-  padding: 12px 40px;
-  border-radius: 40px;
-  box-shadow: none;
   border: none;
-  outline: none;
+  border-radius: 4px;
   cursor: pointer;
-  background: #1d2b38;
+}
+
+.fold input[type="submit"]:hover {
+  background-color: #ffd700;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #333;
   color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
 }
 
-.fold form input[type="submit"]:hover {
-  background: #247ebf;
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-@media (max-width: 952px) {
+table tr:hover {
+  background-color: #f1f1f1;
+}
 
-  nav {
-    background: #0082e6;
-    height: 60px;
-    width: 100%;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-active {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nav-active .line:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .nav-active .line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .nav-active .line:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
-  label.logo {
-    font-size: 30px;
-    padding-left: 50px;
-  }
-
-  nav ul li {
-    display: inline-block;
-    /* line-height: 80px; */
-    margin: 0 0;
-    padding-right: 330px;
-  }
-
-  nav ul li a {
-    margin: 0;
-    color: rgb(7, 0, 0);
-    font-size: 17px;
-    padding: 0;
-    border-radius: 1px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  .content {
-    display: none;
-  }
-
-  .box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    box-sizing: border-box;
-    overflow: hidden;
-    width: 400px;
-  }
-
-  .signin {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    background: #247ebf;
-    color: #fff;
-    text-align: center;
-    line-height: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
-  }
+/* No results message */
+p {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 20px;
 }

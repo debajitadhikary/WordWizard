@@ -14,7 +14,6 @@ cur.execute('''CREATE TABLE words
                 b_meaning TEXT)''')
 
 
-
 data =  [(1,'ᱚ','ᱧᱩ','অ','First letter of Santali Alphabet (Olchiki)','সাঁওতালি বর্ণমালার প্রথম অক্ষর'),
         (2,'ᱚ','ᱧᱩ','অ','anger , exclamation of anger','রাগ, রোষ সূচক উক্তি'),
         (3,'ᱚ','ᱩᱱ','অ','a privative prefix, by no means, negative, not, without','নঞর্থক উপসর্গ, না বাচক অব্যয়'),

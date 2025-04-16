@@ -1,0 +1,88 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+
+# === Flask ===
+instance/
+*.db
+*.sqlite3
+*.log
+*.pid
+
+# Flask env files
+.env
+.env.*
+*.env
+
+# Flask cache / debug
+*.bak
+*.swp
+*.tmp
+.cache/
+*.cache/
+
+# === Virtual Environment ===
+venv/
+ENV/
+env/
+.venv/
+.python-version
+
+# === IDEs and Editors ===
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# === macOS ===
+.DS_Store
+
+# === Windows ===
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Node/Frontend (if using React, Vue, etc. for frontend assets) ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/static/build/
+/static/node_modules/
+
+# === Testing ===
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+
+# === Docker ===
+*.pid
+*.tar
+*.tgz
+.dockerignore
+docker-compose.override.yml
+
+# === Misc ===
+*.orig
+*.rej
+*.swo
+*.swp
+*.tmp
+*.bak
+*.old
+*.log
+*.sql
+
+# === Migrations (if using Flask-Migrate) ===
+migrations/versions/
