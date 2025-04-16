@@ -10,7 +10,7 @@ pip-wheel-metadata/
 
 # === Flask ===
 instance/
-*.db
+# *.db
 *.sqlite3
 *.log
 *.pid
