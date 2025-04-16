@@ -15,21 +15,14 @@
       <div class="lp">
         <img src="/static/logo.png" width="60px" height="60px">
       </div>
-      <!-- <label class="logo">WordWizard</label> -->
       <ul class="nav-links">
-
         <li><a class="active" href="http://127.0.0.1:5000/">Home</a></li>
-
       </ul>
     </div>
   </nav>
 
   <div class="content">
-    <!-- <h1>WORD <br><span>WIZARD</span> <br>WEBSITE</h1> -->
     <h1>Birsha</h1>
-    <!-- <p class="par">This is an Alchiki Dictioary website<br> It aims in converting santali words.</p> -->
-
-    <!-- <p class="par"> Alchiki Dictionary </p> -->
   </div>
   
   <div class="box">
@@ -37,7 +30,7 @@
     <div class="fold">
       <form method="GET" action="{{ url_for('search') }}">
         <input type="text" name="query" placeholder="Enter a word in alchiki">
-        <input type="submit" name="" value="search">
+        <input type="submit" value="search">
       </form>
       {% if results %}
       <table>
@@ -72,4 +65,3 @@
 </body>
 
 </html>
- 
