@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-  <link rel="icon" href="/static/logo.png" type="image/png">
+  <link rel="icon" href="/static/logo.png" type="image/png" style="height: 60px; width: 120px;" >
+
+
+  <!-- Simple Keyboard Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard/build/css/index.css">
+
   <title>Dictionary</title>
   <style>
     .highlight {
@@ -33,6 +38,30 @@
       text-align: center;
       margin: 20px 0;
     }
+    #keyboard {
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    body {
+    background-image: url('/static/stock-bw.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+  }
+  
+  /* Optional: Add a semi-transparent overlay to improve text readability */
+  /*
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust opacity (0.7 = 70%) */
+   /* z-index: -1; /* Behind content */
+  /* } */
+  
   </style>
 </head>
 
@@ -56,7 +85,19 @@
     <div class="signin">Olchiki Dictionary</div>
     <div class="fold">
       <form method="GET" action="{{ url_for('search') }}" onsubmit="showSpinner()">
-        <input type="text" name="query" placeholder="Enter a word in alchiki" value="{{ query or '' }}">
+        <div style="margin-top: 10px;">
+          <label for="lang-select">Choose language:</label>
+          <select id="lang-select" onchange="setKeyboardLayout(this.value)">
+            <option value="english">English</option>
+            <option value="bengali">Bengali</option>
+            <option value="olchiki" selected>Ol Chiki</option>
+          </select>
+        </div>
+        
+        <!-- Virtual Keyboard Container -->
+        <div id="keyboard" class="simple-keyboard" style="margin-top: 20px;"></div>
+        
+        <input type="text" name="query" placeholder="Enter a word in olchiki" value="{{ query or '' }}">
         <input type="submit" value="search">
       </form>
 
@@ -101,6 +142,44 @@
       {% endif %}
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/simple-keyboard/build/index.js"></script>
+  <script>
+    const layouts = {
+      english: {
+        default: ["q w e r t y u i o p", "a s d f g h j k l", "z x c v b n m", "{space}"]
+      },
+      bengali: {
+        default: ["ক খ গ ঘ ঙ চ ছ জ ঝ", "ট ঠ ড ঢ ণ ত থ দ ধ", "ন প ফ ব ভ ম য র ল", "{space}"]
+      },
+      olchiki: {
+        default: ["᱐ ᱑ ᱒ ᱓ ᱔ ᱕ ᱖ ᱗ ᱘ ᱙", "ᱸ ᱹ ᱺ ᱻ ᱼ ᱽ ᱾ ᱿", "ᱚ ᱛ ᱜ ᱝ ᱞ ᱟ ᱠ ᱡ ᱢ ᱣ", "ᱤ ᱥ ᱦ ᱧ ᱨ ᱩ ᱪ ᱫ ᱬ ᱭ", "ᱮ ᱯ ᱰ ᱱ ᱲ ᱳ ᱴ ᱵ ᱶ ᱷ", "{space}"]
+      }
+    };
+
+    let keyboard;
+
+    function setKeyboardLayout(lang) {
+      if (keyboard) {
+        keyboard.setOptions({ layout: layouts[lang] });
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      keyboard = new SimpleKeyboard.default({
+        onChange: input => {
+          document.querySelector("input[name='query']").value = input;
+        },
+        onKeyPress: button => {
+          if (button === "{space}") {
+            keyboard.setInput(keyboard.getInput() + " ");
+          }
+        },
+        layout: layouts["olchiki"],
+        theme: "hg-theme-default hg-layout-default myTheme",
+      });
+    });
+  </script>
 
   <script>
     function showSpinner() {
